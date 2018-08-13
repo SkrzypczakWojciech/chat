@@ -12,8 +12,16 @@ module.exports = (env) => {
         entry: './client/index.js',
         output: {
             path: path.resolve(__dirname, 'public'),
-            filename: 'app.bundle.js'
-        },
+            filename: 'app.bundle.js',
+        devServer: {
+             proxy: {
+                '/socket.io': {
+                target: 'http://localhost:3000',
+                ws: true
+                  }
+                }
+              }
+            },
         module: {
             rules: [{
                     test: /\.js$/,
@@ -44,11 +52,3 @@ module.exports = (env) => {
     }
 };
 
-devServer: {
-    proxy: {
-        '/socket.io': {
-            target: 'http://localhost:3000',
-            ws: true
-        }
-    }
-}
