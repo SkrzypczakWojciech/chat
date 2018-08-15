@@ -14,7 +14,7 @@ module.exports = (env) => {
         output: {
             path: path.resolve(__dirname, 'public'),
             filename: 'app.bundle.js',
-          }
+          },
         devServer: {
              proxy: {
                 '/socket.io': {
@@ -22,7 +22,6 @@ module.exports = (env) => {
                 ws: true
                   }
                 }
-              }
             },
         module: {
             rules: [{
